@@ -1,0 +1,13 @@
+services:
+  - docker
+
+before_install:
+  - if [ "$TRAVIS_BRANCH" != "master" ]; then echo "Not running because branch is not master."; exit 0; fi
+  - docker pull wpscanteam/wpscan
+  - mkdir -p wpscan_test
+  - mkdir -p ssllabs_test
+
+script:
+  - if [ "$TRAVIS_BRANCH" != "master" ]; then echo "Not running because branch is not master."; exit 0; fi
+  - ./autotest.sh
+  - ./deploy.sh
