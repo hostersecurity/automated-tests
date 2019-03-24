@@ -3,6 +3,11 @@
 echo $PRIVATE_SSH_KEY | base64 --decode > /tmp/.ssh_private
 chmod 600 /tmp/.ssh_private
 
+<<<<<<< Updated upstream
+=======
+eval $(ssh-agent)
+
+>>>>>>> Stashed changes
 ssh-add /tmp/.ssh_private
 
 git clone git@github.com:hostersecurity/hostersecurity.github.io.git
