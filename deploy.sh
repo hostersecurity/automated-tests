@@ -3,11 +3,8 @@
 echo $PRIVATE_SSH_KEY | base64 --decode > /tmp/.ssh_private
 chmod 600 /tmp/.ssh_private
 
-<<<<<<< Updated upstream
-=======
 eval $(ssh-agent)
 
->>>>>>> Stashed changes
 ssh-add /tmp/.ssh_private
 
 git clone git@github.com:hostersecurity/hostersecurity.github.io.git
@@ -25,3 +22,4 @@ git commit -m "Updated test results for $TRAVIS_BUILD_NBR"
 git config user.email "travis@hostersecurity.tld"
 git config user.name "Auto-test"
 git push origin testsresults/$TRAVIS_BUILD_NUMBER
+
