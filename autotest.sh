@@ -39,7 +39,7 @@ while read URL; do
 done < websites.txt
 
 source dependencies_progressbar/progress_bar.sh
-progress_bar 600
+progress_bar $WAITINGTIME
 
 while read URL; do
   DOMAIN=$(echo $URL | awk -F/ '{print $3}')
