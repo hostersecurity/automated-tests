@@ -18,7 +18,7 @@ cp wpscan_test/* hostersecurity.github.io/wpscan_test/
 cd hostersecurity.github.io
 git checkout -b testsresults/$TRAVIS_BUILD_NUMBER
 git add ssllabs_test/* wpscan_test/*
-git commit -m "Updated test results for $TRAVIS_BUILD_NBR"
+git commit -m "Updated test results for build $TRAVIS_BUILD_NUMBER"
 git config user.email "travis@hostersecurity.tld"
 git config user.name "Auto-test"
 git push origin testsresults/$TRAVIS_BUILD_NUMBER
