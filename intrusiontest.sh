@@ -20,7 +20,7 @@ function	runphpinfo()
 function	compiletestresults()
 {
 	cat tmptest/$1/*.test > $1.intrusion
-	cp tmptest/$1/phpinfo.html $1.phpinfo.html
+	cat tmptest/$1/phpinfo.html > $1.phpinfo.html
 }
 
 function	runtests()
@@ -38,6 +38,7 @@ function	runtests()
 	runtestcommand $1 "ps -fix" $2 "test_process"
 	runphpinfo $1 "phpinfo" $2 "test_get_phpinfo"
 	compiletestresults $2
+	
 }
 
 
@@ -55,6 +56,8 @@ while read URL; do
 	fi
 	rm -rf tmptest/$DOMAIN
 	mv tmptest intrusion_tests
-	mv *.intrusion intrusion_tests
-	mv *.phpinfo.html intrusion_tests
+	if [ -f *.intrusion ]; then
+		mv *.intrusion intrusion_tests
+		mv *.phpinfo.html intrusion_tests
+	fi
 done < websites.txt

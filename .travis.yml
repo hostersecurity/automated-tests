@@ -10,4 +10,5 @@ before_install:
 script:
   - if [ "$TRAVIS_BRANCH" != "master" ]; then echo "Not running because branch is not master."; exit 0; fi
   - ./autotest.sh
+  - ./intrusiontest.sh
   - ./deploy.sh
